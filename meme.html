@@ -1,0 +1,45 @@
+<!-- Special start -->
+<script type='text/javascript' src='http://code.jquery.com/jquery-2.1.0.js'></script>
+
+<div class="datboy" id="datboy">
+  <img src "https://media.giphy.com/media/xohHbwcnOhqbS/giphy.gif" style="display:none" alt/>
+</div>
+
+<style>
+.datboy { 
+  content:url("https://media.giphy.com/media/xohHbwcnOhqbS/giphy.gif"); 
+  position:fixed; 
+  width: 312px; 
+  height: 390px; 
+  left:50%; 
+  bottom:30px; 
+  background-position:0px -178px; 
+  z-index:1000; 
+  visibility: hidden;
+} 
+</style>
+
+<script type="text/javascript">
+  var datboy = document.getElementById("datboy")
+
+  $(document).ready(function() {
+    $('#flash').hide(); 
+  });
+
+  var inputCodeArray = [],
+  inputCodeKey = '38,38,40,40,37,39,37,39,66,65,13';
+  $(document).keydown(function(e) {
+    inputCodeArray.push(e.keyCode);
+    if (inputCodeArray.toString().indexOf(inputCodeKey) >= 0) {
+      console.log("Meme mode is go!")
+      if (datboy.style.visibility === 'hidden') {
+        datboy.style.visibility = 'visible';
+      } 
+      else {
+        datboy.style.visibility = 'hidden';
+      }
+      inputCodeArray = [];
+    }
+  });
+</script>
+<!-- Special end -->
